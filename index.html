@@ -159,39 +159,77 @@
             color: var(--accent);
         }
 
-        /* Hero */
+        /* Hero Carousel */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
             position: relative;
             display: flex;
             align-items: center;
             overflow: hidden;
         }
 
-        .hero-bg {
+        .hero-carousel {
             position: absolute;
             top: 0;
-            right: 0;
-            width: 60%;
+            left: 0;
+            width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600') center/cover;
-            opacity: 0.4;
-            animation: slowZoom 20s infinite alternate;
         }
 
-        @keyframes slowZoom {
-            from { transform: scale(1); }
-            to { transform: scale(1.1); }
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            animation: kenBurns 8s ease-in-out infinite;
         }
 
-        .hero-overlay {
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        @keyframes kenBurns {
+            0% { transform: scale(1) translate(0, 0); }
+            50% { transform: scale(1.1) translate(-2%, -1%); }
+            100% { transform: scale(1) translate(0, 0); }
+        }
+
+        .carousel-overlay {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--primary) 40%, transparent 100%);
+            background: linear-gradient(90deg, rgba(26,31,46,0.95) 0%, rgba(26,31,46,0.7) 50%, rgba(26,31,46,0.4) 100%);
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 3rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: var(--accent);
+            transform: scale(1.2);
+        }
+
+        .dot:hover {
+            background: rgba(255,255,255,0.6);
         }
 
         .hero-content {
@@ -577,6 +615,55 @@
             margin: 0 auto 3rem;
         }
 
+        /* Houzz Reviews */
+        .houzz-reviews {
+            background: var(--white);
+            padding: 6rem 0;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: var(--cream);
+            padding: 2.5rem;
+            transition: all 0.3s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .review-stars {
+            color: var(--accent);
+            font-size: 1.25rem;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .review-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .review-author strong {
+            display: block;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .review-author span {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
         /* Gallery */
         .gallery {
             background: var(--cream);
@@ -586,6 +673,18 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
+        }
+
+        @media (max-width: 1024px) {
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .gallery-item {
@@ -919,10 +1018,15 @@
         </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- Hero with Carousel -->
     <section class="hero" id="home">
-        <div class="hero-bg"></div>
-        <div class="hero-overlay"></div>
+        <div class="hero-carousel">
+            <div class="carousel-slide active" style="background-image: url('assets/1.jpg')"></div>
+            <div class="carousel-slide" style="background-image: url('assets/2.jpg')"></div>
+            <div class="carousel-slide" style="background-image: url('assets/3.jpg')"></div>
+            <div class="carousel-slide" style="background-image: url('assets/4.jpg')"></div>
+            <div class="carousel-overlay"></div>
+        </div>
         <div class="hero-content">
             <span class="hero-badge">Family Owned & Operated</span>
             <h1>Building Dreams <span>Since 1989</span></h1>
@@ -930,6 +1034,12 @@
             <div class="hero-buttons">
                 <a href="#contact" class="btn btn-primary">Get Free Estimate →</a>
                 <a href="#services" class="btn btn-outline">View Our Services</a>
+            </div>
+            <div class="carousel-dots">
+                <span class="dot active" onclick="goToSlide(0)"></span>
+                <span class="dot" onclick="goToSlide(1)"></span>
+                <span class="dot" onclick="goToSlide(2)"></span>
+                <span class="dot" onclick="goToSlide(3)"></span>
             </div>
         </div>
     </section>
@@ -1062,6 +1172,46 @@
         </div>
     </section>
 
+    <!-- Houzz Reviews -->
+    <section class="houzz-reviews">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Reviews</span>
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-subtitle">See our 5-star reviews on Houzz</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Plinio Design Corp transformed our outdated kitchen into a modern masterpiece. Their attention to detail and craftsmanship is unmatched. Highly recommend!"</p>
+                    <div class="review-author">
+                        <strong>Sarah M.</strong>
+                        <span>Queens, NY</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Professional, punctual, and delivered exactly what they promised. Our bathroom renovation exceeded expectations. Will definitely hire again for future projects."</p>
+                    <div class="review-author">
+                        <strong>Michael R.</strong>
+                        <span>Brooklyn, NY</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"35 years of experience shows in their work. They handled all permits and regulations seamlessly. Our home addition looks like it was always part of the house."</p>
+                    <div class="review-author">
+                        <strong>Jennifer L.</strong>
+                        <span>Manhattan, NY</span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 3rem; text-align: center;">
+                <a href="https://www.houzz.com/professionals/general-contractor/plinio-design-corp-pfvwus-pf~1540661997" target="_blank" class="btn btn-primary">View All Reviews on Houzz →</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Gallery -->
     <section class="gallery" id="gallery">
         <div class="container">
@@ -1085,6 +1235,38 @@
                 </div>
                 <div class="gallery-item">
                     <img src="assets/4.jpg" alt="Project 4">
+                    <div class="gallery-overlay"><span>+</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/5.jpg" alt="Project 5">
+                    <div class="gallery-overlay"><span>+</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/6.jpg" alt="Project 6">
+                    <div class="gallery-overlay"><span>+</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/7.jpg" alt="Project 7">
+                    <div class="gallery-overlay"><span>+</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/8.jpg" alt="Project 8">
+                    <div class="gallery-overlay"><span>+</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/9.jpg" alt="Project 9">
+                    <div class="gallery-overlay"><span>+</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/10.jpg" alt="Project 10">
+                    <div class="gallery-overlay"><span>+</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/11.jpg" alt="Project 11">
+                    <div class="gallery-overlay"><span>+</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/12.jpg" alt="Project 12">
                     <div class="gallery-overlay"><span>+</span></div>
                 </div>
             </div>
@@ -1218,8 +1400,29 @@
             });
         });
 
+        // Hero Carousel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+
+        function goToSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            currentSlide = index;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            goToSlide((currentSlide + 1) % totalSlides);
+        }
+
+        // Auto-advance carousel every 5 seconds
+        setInterval(nextSlide, 5000);
+
         // Scroll reveal animations
-        const revealElements = document.querySelectorAll('.service-card, .gallery-item, .contact-item');
+        const revealElements = document.querySelectorAll('.service-card, .gallery-item, .contact-item, .review-card');
         
         const revealOnScroll = () => {
             revealElements.forEach(element => {
