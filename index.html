@@ -676,13 +676,15 @@
         }
 
         @media (max-width: 1024px) {
-            .reviews-grid {
+            .reviews-grid,
+            .process-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 768px) {
-            .reviews-grid {
+            .reviews-grid,
+            .process-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -1162,13 +1164,68 @@
         </div>
     </section>
 
+    <!-- Our Process -->
+    <section class="process" style="background: var(--white); padding: 6rem 0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">How We Work</span>
+                <h2 class="section-title">Our Proven Process</h2>
+                <p class="section-subtitle">From initial consultation to final walkthrough, we ensure quality at every step</p>
+            </div>
+            <div class="process-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;">
+                <div class="process-step" style="text-align: center; padding: 2rem;">
+                    <div class="step-number" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--accent); opacity: 0.3; font-weight: 700;">01</div>
+                    <h3 style="margin: 1rem 0;">Consultation</h3>
+                    <p style="color: var(--gray);">Free in-home assessment. We listen to your needs, assess your space, and discuss your vision.</p>
+                </div>
+                <div class="process-step" style="text-align: center; padding: 2rem;">
+                    <div class="step-number" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--accent); opacity: 0.3; font-weight: 700;">02</div>
+                    <h3 style="margin: 1rem 0;">Design & Quote</h3>
+                    <p style="color: var(--gray);">Detailed proposal with transparent pricing. No hidden fees, no surprises.</p>
+                </div>
+                <div class="process-step" style="text-align: center; padding: 2rem;">
+                    <div class="step-number" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--accent); opacity: 0.3; font-weight: 700;">03</div>
+                    <h3 style="margin: 1rem 0;">Construction</h3>
+                    <p style="color: var(--gray);">Expert craftsmen execute your project with daily updates and minimal disruption.</p>
+                </div>
+                <div class="process-step" style="text-align: center; padding: 2rem;">
+                    <div class="step-number" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--accent); opacity: 0.3; font-weight: 700;">04</div>
+                    <h3 style="margin: 1rem 0;">Completion</h3>
+                    <p style="color: var(--gray);">Final walkthrough, quality inspection, and your complete satisfaction guaranteed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Why Us -->
     <section class="why-us">
         <div class="container">
             <span class="section-label" style="color: var(--accent);">Why Choose Us</span>
             <h2>The Plinio Design Difference</h2>
             <p>We are a family-owned business with over 35 years of experience. Our expertise allows us to provide high-quality services at the best rates in the industry. When you choose Plinio Design Corp., you're choosing a partner committed to your complete satisfaction.</p>
-            <a href="#contact" class="btn btn-primary" style="margin-top: 2rem;">Start Your Project</a>
+            <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 3rem;">
+                <div style="text-align: center; padding: 1.5rem;">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🏆</div>
+                    <h4 style="margin-bottom: 0.5rem;">Award Winning</h4>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Recognized on Houzz</p>
+                </div>
+                <div style="text-align: center; padding: 1.5rem;">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📋</div>
+                    <h4 style="margin-bottom: 0.5rem;">Fully Licensed</h4>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">All NYC certifications</p>
+                </div>
+                <div style="text-align: center; padding: 1.5rem;">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🛡️</div>
+                    <h4 style="margin-bottom: 0.5rem;">Insured</h4>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Full coverage protection</p>
+                </div>
+                <div style="text-align: center; padding: 1.5rem;">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⭐</div>
+                    <h4 style="margin-bottom: 0.5rem;">5-Star Rated</h4>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Consistently top reviews</p>
+                </div>
+            </div>
+            <a href="#contact" class="btn btn-primary" style="margin-top: 3rem;">Start Your Project</a>
         </div>
     </section>
 
@@ -1178,36 +1235,36 @@
             <div class="section-header">
                 <span class="section-label">Reviews</span>
                 <h2 class="section-title">What Our Clients Say</h2>
-                <p class="section-subtitle">See our 5-star reviews on Houzz</p>
+                <p class="section-subtitle">Real 5-star reviews from Houzz</p>
             </div>
             <div class="reviews-grid">
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Plinio Design Corp transformed our outdated kitchen into a modern masterpiece. Their attention to detail and craftsmanship is unmatched. Highly recommend!"</p>
+                    <p class="review-text">"Plinio and his extremely respectful and tidy workers renovated our kitchen while we lived in the apartment. The quality of the final product is nothing short of impressive. We now have an incredibly beautiful and high-quality kitchen, with ceramic floors, backsplash, and a beautiful quartz countertop. Should I ever need to renovate any other space in my home, I will want Plinio leading that process."</p>
                     <div class="review-author">
-                        <strong>Sarah M.</strong>
-                        <span>Queens, NY</span>
+                        <strong>Camila Gelpi</strong>
+                        <span>Kitchen Renovation • Bronx, NY</span>
                     </div>
                 </div>
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Professional, punctual, and delivered exactly what they promised. Our bathroom renovation exceeded expectations. Will definitely hire again for future projects."</p>
+                    <p class="review-text">"Mr. Baez is one of the most professional contractors that I have ever met. At the same time, he is hospitable, courteous, and highly attuned to the needs and wishes of the client. His staff - administration, project managers, plumbers, electricians, carpenters, etc., all reflect his excellent work ethic. This is a company that stands firmly behind its finished product. Anyone who is able to secure the services of this corporation will walk away with a showcase of excellence."</p>
                     <div class="review-author">
-                        <strong>Michael R.</strong>
-                        <span>Brooklyn, NY</span>
+                        <strong>Dolores Jefferson</strong>
+                        <span>Full House Renovation • New York City</span>
                     </div>
                 </div>
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"35 years of experience shows in their work. They handled all permits and regulations seamlessly. Our home addition looks like it was always part of the house."</p>
+                    <p class="review-text">"Plinio took over from another sub-contractor to complete our lobby renovation and ADA ramp project. Plinio is extremely professional in terms of explaining details and timeline. The quality of work was exceptional and he completed the project on time and within budget. Highly recommended for any commercial renovation work."</p>
                     <div class="review-author">
-                        <strong>Jennifer L.</strong>
-                        <span>Manhattan, NY</span>
+                        <strong>Tanuja Pulakhandam</strong>
+                        <span>Lobby & ADA Ramp • New York City</span>
                     </div>
                 </div>
             </div>
             <div class="text-center" style="margin-top: 3rem; text-align: center;">
-                <a href="https://www.houzz.com/professionals/general-contractor/plinio-design-corp-pfvwus-pf~1540661997" target="_blank" class="btn btn-primary">View All Reviews on Houzz →</a>
+                <a href="https://www.houzz.com/professionals/general-contractor/plinio-design-corp-pfvwus-pf~1540661997" target="_blank" class="btn btn-primary">Read More Reviews on Houzz →</a>
             </div>
         </div>
     </section>
