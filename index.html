@@ -1085,6 +1085,7 @@
             position: relative;
             width: 100%;
             height: var(--banner-height);
+            flex-shrink: 0;
         }
 
         .carpentry-banner,
@@ -1285,9 +1286,13 @@
             }
 
             .carpentry-banner,
-            .feature-banner,
-            .banner-stack {
+            .feature-banner {
                 height: clamp(360px, 70vh, 520px);
+            }
+
+            .banner-stack-item {
+                height: clamp(360px, 70vh, 520px);
+                flex-shrink: 0;
             }
 
             .carpentry-content,
