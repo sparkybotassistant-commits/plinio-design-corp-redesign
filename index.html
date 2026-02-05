@@ -133,6 +133,70 @@
             50% { opacity: 0.5; }
         }
 
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-80px);
+            transition: all 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(80px);
+            transition: all 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .reveal-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .reveal-rotate {
+            opacity: 0;
+            transform: rotate(-5deg) translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-rotate.active {
+            opacity: 1;
+            transform: rotate(0) translateY(0);
+        }
+
+        /* Stagger delays for cards */
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+        .reveal-delay-6 { transition-delay: 0.6s; }
+
         /* Navigation */
         .nav {
             position: fixed;
@@ -1372,7 +1436,7 @@
     </section>
 
     <!-- About -->
-    <section class="about" id="about">
+    <section class="about reveal" id="about">
         <div class="container">
             <div class="about-grid">
                 <div class="about-images">
@@ -1426,40 +1490,40 @@
     </section>
 
     <!-- Services -->
-    <section class="services" id="services">
+    <section class="services reveal" id="services">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-label">Our Services</span>
                 <h2 class="section-title">Comprehensive Construction Solutions</h2>
                 <p class="section-subtitle">From concept to completion, we handle every aspect of your construction project with precision and care.</p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card reveal-scale reveal-delay-1">
                     <span class="service-number">01</span>
                     <h3>General Remodeling</h3>
                     <p>Transform your space with our comprehensive remodeling services. Whether it's a kitchen renovation, bathroom upgrade, basement finishing, or full-home renovation, we bring decades of expertise to every project. Our team handles everything from demolition to final touches, ensuring a seamless transformation that adds value to your home.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card reveal-scale reveal-delay-2">
                     <span class="service-number">02</span>
                     <h3>Custom Carpentry</h3>
                     <p>Handmade carpentry solutions tailored to your exact specifications. From custom cabinets and built-in shelving to intricate trim work and crown molding, our master craftsmen create beautiful, lasting woodwork that elevates any space. We use only premium materials and traditional techniques combined with modern precision.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card reveal-scale reveal-delay-3">
                     <span class="service-number">03</span>
                     <h3>Building Regulations</h3>
                     <p>Navigate NYC's complex building codes with confidence. We handle all permits, inspections, and regulatory compliance for residential and commercial projects. Our deep understanding of DOB requirements ensures your project meets every code requirement, avoiding costly delays and violations.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card reveal-scale reveal-delay-4">
                     <span class="service-number">04</span>
                     <h3>Home Additions</h3>
                     <p>Expand your living space with seamlessly integrated home additions. Whether you need an extra bedroom, expanded kitchen, or a second story, we design and build additions that look like they've always been part of your home. We handle structural engineering, foundation work, and all finishing details.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card reveal-scale reveal-delay-5">
                     <span class="service-number">05</span>
                     <h3>Interior Design</h3>
                     <p>Bring your vision to life with our interior design expertise. Our designers work closely with you to understand your style and functional needs, creating spaces that are both beautiful and practical. From material selection to final staging, we ensure every detail reflects your personal taste.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card reveal-scale reveal-delay-6">
                     <span class="service-number">06</span>
                     <h3>Specialty Services</h3>
                     <p>Unique construction needs require specialized expertise. We offer dental clinic construction, commercial renovations, historic restorations, and ADA compliance upgrades. No project is too unusual—our experienced team has seen it all and knows how to deliver exceptional results.</p>
@@ -1469,30 +1533,30 @@
     </section>
 
     <!-- Our Process -->
-    <section class="process" style="background: var(--white); padding: 6rem 0;">
+    <section class="process reveal" style="background: var(--white); padding: 6rem 0;">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-label">How We Work</span>
                 <h2 class="section-title">Our Proven Process</h2>
                 <p class="section-subtitle">From initial consultation to final walkthrough, we ensure quality at every step</p>
             </div>
             <div class="process-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;">
-                <div class="process-step" style="text-align: center; padding: 2rem;">
+                <div class="process-step reveal-left reveal-delay-1" style="text-align: center; padding: 2rem;">
                     <div class="step-number" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--accent); opacity: 0.3; font-weight: 700;">01</div>
                     <h3 style="margin: 1rem 0;">Consultation</h3>
                     <p style="color: var(--gray);">Free in-home assessment. We listen to your needs, assess your space, and discuss your vision.</p>
                 </div>
-                <div class="process-step" style="text-align: center; padding: 2rem;">
+                <div class="process-step reveal-left reveal-delay-2" style="text-align: center; padding: 2rem;">
                     <div class="step-number" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--accent); opacity: 0.3; font-weight: 700;">02</div>
                     <h3 style="margin: 1rem 0;">Design & Quote</h3>
                     <p style="color: var(--gray);">Detailed proposal with transparent pricing. No hidden fees, no surprises.</p>
                 </div>
-                <div class="process-step" style="text-align: center; padding: 2rem;">
+                <div class="process-step reveal-right reveal-delay-3" style="text-align: center; padding: 2rem;">
                     <div class="step-number" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--accent); opacity: 0.3; font-weight: 700;">03</div>
                     <h3 style="margin: 1rem 0;">Construction</h3>
                     <p style="color: var(--gray);">Expert craftsmen execute your project with daily updates and minimal disruption.</p>
                 </div>
-                <div class="process-step" style="text-align: center; padding: 2rem;">
+                <div class="process-step reveal-right reveal-delay-4" style="text-align: center; padding: 2rem;">
                     <div class="step-number" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--accent); opacity: 0.3; font-weight: 700;">04</div>
                     <h3 style="margin: 1rem 0;">Completion</h3>
                     <p style="color: var(--gray);">Final walkthrough, quality inspection, and your complete satisfaction guaranteed.</p>
@@ -1502,34 +1566,34 @@
     </section>
 
     <!-- Why Us -->
-    <section class="why-us">
+    <section class="why-us reveal">
         <div class="container">
-            <span class="section-label" style="color: var(--accent);">Why Choose Us</span>
-            <h2>The Plinio Design Difference</h2>
-            <p>We are a family-owned business with over 35 years of experience. Our expertise allows us to provide high-quality services at the best rates in the industry. When you choose Plinio Design Corp., you're choosing a partner committed to your complete satisfaction.</p>
+            <span class="section-label reveal" style="color: var(--accent);">Why Choose Us</span>
+            <h2 class="reveal">The Plinio Design Difference</h2>
+            <p class="reveal">We are a family-owned business with over 35 years of experience. Our expertise allows us to provide high-quality services at the best rates in the industry. When you choose Plinio Design Corp., you're choosing a partner committed to your complete satisfaction.</p>
             <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 3rem;">
-                <div style="text-align: center; padding: 1.5rem;">
+                <div class="reveal-scale reveal-delay-1" style="text-align: center; padding: 1.5rem;">
                     <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🏆</div>
                     <h4 style="margin-bottom: 0.5rem;">Award Winning</h4>
                     <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Recognized on Houzz</p>
                 </div>
-                <div style="text-align: center; padding: 1.5rem;">
+                <div class="reveal-scale reveal-delay-2" style="text-align: center; padding: 1.5rem;">
                     <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📋</div>
                     <h4 style="margin-bottom: 0.5rem;">Fully Licensed</h4>
                     <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">All NYC certifications</p>
                 </div>
-                <div style="text-align: center; padding: 1.5rem;">
+                <div class="reveal-scale reveal-delay-3" style="text-align: center; padding: 1.5rem;">
                     <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🛡️</div>
                     <h4 style="margin-bottom: 0.5rem;">Insured</h4>
                     <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Full coverage protection</p>
                 </div>
-                <div style="text-align: center; padding: 1.5rem;">
+                <div class="reveal-scale reveal-delay-4" style="text-align: center; padding: 1.5rem;">
                     <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⭐</div>
                     <h4 style="margin-bottom: 0.5rem;">5-Star Rated</h4>
                     <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Consistently top reviews</p>
                 </div>
             </div>
-            <a href="#contact" class="btn btn-primary" style="margin-top: 3rem;">Start Your Project</a>
+            <a href="#contact" class="btn btn-primary reveal" style="margin-top: 3rem;">Start Your Project</a>
         </div>
     </section>
 
@@ -1611,59 +1675,59 @@
     </section>
 
     <!-- Gallery -->
-    <section class="gallery" id="gallery">
+    <section class="gallery reveal" id="gallery">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-label">Our Portfolio</span>
                 <h2 class="section-title">Quality You Can See</h2>
                 <p class="section-subtitle">Browse our recent projects and see the difference craftsmanship makes.</p>
             </div>
             <div class="gallery-grid">
-                <div class="gallery-item" onclick="openLightbox(0)">
+                <div class="gallery-item reveal-scale reveal-delay-1" onclick="openLightbox(0)">
                     <img src="assets/full-1.jpg" alt="Kitchen Renovation Project - Custom cabinets and quartz countertop">
                     <div class="gallery-overlay"><span>+</span></div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(1)">
+                <div class="gallery-item reveal-scale reveal-delay-2" onclick="openLightbox(1)">
                     <img src="assets/full-2.jpg" alt="Bathroom Remodel - Modern fixtures and tile work">
                     <div class="gallery-overlay"><span>+</span></div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(2)">
+                <div class="gallery-item reveal-scale reveal-delay-3" onclick="openLightbox(2)">
                     <img src="assets/full-3.jpg" alt="Home Addition - Seamless architecture match">
                     <div class="gallery-overlay"><span>+</span></div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(3)">
+                <div class="gallery-item reveal-scale reveal-delay-4" onclick="openLightbox(3)">
                     <img src="assets/full-4.jpg" alt="Custom Carpentry - Built-in shelving and trim work">
                     <div class="gallery-overlay"><span>+</span></div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(4)">
+                <div class="gallery-item reveal-scale reveal-delay-5" onclick="openLightbox(4)">
                     <img src="assets/full-5.jpg" alt="Living Room Renovation - Open concept design">
                     <div class="gallery-overlay"><span>+</span></div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(5)">
+                <div class="gallery-item reveal-scale reveal-delay-6" onclick="openLightbox(5)">
                     <img src="assets/full-6.jpg" alt="Commercial Lobby Renovation - ADA compliant">
                     <div class="gallery-overlay"><span>+</span></div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(6)">
+                <div class="gallery-item reveal-scale reveal-delay-1" onclick="openLightbox(6)">
                     <img src="assets/full-7.jpg" alt="Master Bathroom - Luxury finishes">
                     <div class="gallery-overlay"><span>+</span></div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(7)">
+                <div class="gallery-item reveal-scale reveal-delay-2" onclick="openLightbox(7)">
                     <img src="assets/full-8.jpg" alt="Kitchen Island - Custom woodwork">
                     <div class="gallery-overlay"><span>+</span></div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(8)">
+                <div class="gallery-item reveal-scale reveal-delay-3" onclick="openLightbox(8)">
                     <img src="assets/full-9.jpg" alt="Basement Finishing - Complete transformation">
                     <div class="gallery-overlay"><span>+</span></div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(9)">
+                <div class="gallery-item reveal-scale reveal-delay-4" onclick="openLightbox(9)">
                     <img src="assets/full-10.jpg" alt="Exterior Work - Siding and trim">
                     <div class="gallery-overlay"><span>+</span></div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(10)">
+                <div class="gallery-item reveal-scale reveal-delay-5" onclick="openLightbox(10)">
                     <img src="assets/full-11.jpg" alt="Flooring Installation - Hardwood and tile">
                     <div class="gallery-overlay"><span>+</span></div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(11)">
+                <div class="gallery-item reveal-scale reveal-delay-6" onclick="openLightbox(11)">
                     <img src="assets/full-12.jpg" alt="Dental Clinic Construction - Commercial project">
                     <div class="gallery-overlay"><span>+</span></div>
                 </div>
@@ -1683,37 +1747,37 @@
     </section>
 
     <!-- Contact -->
-    <section class="contact" id="contact">
+    <section class="contact reveal" id="contact">
         <div class="container">
             <div class="contact-grid">
-                <div class="contact-info">
+                <div class="contact-info reveal-left">
                     <span class="section-label">Get In Touch</span>
                     <h3>Ready to Build Something Amazing?</h3>
                     <p>Contact us today for your free, no-obligation estimate. One of our highly qualified representatives will discuss your project and provide expert guidance.</p>
                     
                     <div class="contact-details">
-                        <div class="contact-item">
+                        <div class="contact-item reveal-scale reveal-delay-1">
                             <div class="contact-icon">📞</div>
                             <div>
                                 <h4>Phone</h4>
                                 <p>(347) 423-0290</p>
                             </div>
                         </div>
-                        <div class="contact-item">
+                        <div class="contact-item reveal-scale reveal-delay-2">
                             <div class="contact-icon">✉️</div>
                             <div>
                                 <h4>Email</h4>
                                 <p>pliniodesigncorp@gmail.com</p>
                             </div>
                         </div>
-                        <div class="contact-item">
+                        <div class="contact-item reveal-scale reveal-delay-3">
                             <div class="contact-icon">📍</div>
                             <div>
                                 <h4>Address</h4>
                                 <p>50-58 68th Street<br>Woodside, NY 11377</p>
                             </div>
                         </div>
-                        <div class="contact-item">
+                        <div class="contact-item reveal-scale reveal-delay-4">
                             <div class="contact-icon">🌐</div>
                             <div>
                                 <h4>Service Areas</h4>
@@ -1722,7 +1786,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="contact-form">
+                <div class="contact-form reveal-right">
                     <form onsubmit="event.preventDefault(); alert('Thank you! We will contact you within 24 hours.');">
                         <div class="form-group">
                             <label>Your Name</label>
@@ -1843,6 +1907,22 @@
                 nav.classList.remove('scrolled');
             }
         });
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-rotate');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
 
         // Mobile Menu
         function toggleMobileMenu() {
