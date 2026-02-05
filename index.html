@@ -1894,9 +1894,14 @@
         // Preloader
         window.addEventListener('load', () => {
             setTimeout(() => {
-                document.getElementById('preloader').classList.add('hidden');
+                document.getElementById('preloader')?.classList.add('hidden');
             }, 1000);
         });
+
+        // ABSOLUTE FALLBACK — hides preloader after 3 seconds no matter what
+        setTimeout(() => {
+            document.getElementById('preloader')?.classList.add('hidden');
+        }, 3000);
 
         // Navigation scroll effect
         window.addEventListener('scroll', () => {
