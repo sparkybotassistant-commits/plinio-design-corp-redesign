@@ -122,6 +122,12 @@
             animation: pulse 1.5s infinite;
         }
 
+        .preloader img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+
         @keyframes pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
@@ -1283,7 +1289,7 @@
 <body>
     <!-- Preloader -->
     <div class="preloader" id="preloader">
-        <div class="preloader-text">Plinio Design Corp.</div>
+        <img src="assets/preloader-animation.webp" alt="Plinio Design Corp.">
     </div>
 
     <!-- Navigation -->
@@ -1598,7 +1604,7 @@
                 </div>
                 <div style="padding: 1.5rem 0;">
                     <h4 style="margin-bottom: 0.5rem; color: var(--primary);">What types of payment do you accept?</h4>
-                    <p style="color: var(--gray); line-height: 1.7;">We accept various payment methods including cash and check. Payment schedules are typically structured with a deposit upfront and progress payments tied to project milestones. We discuss all payment terms clearly before starting work.</p>
+                    <p style="color: var(--gray); line-height: 1.7;">We accept various payment methods including cash, check, and wire transfer. Payment schedules are typically structured with a deposit upfront and progress payments tied to project milestones. We discuss all payment terms clearly before starting work.</p>
                 </div>
             </div>
         </div>
