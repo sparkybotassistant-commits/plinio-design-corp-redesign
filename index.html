@@ -1068,6 +1068,12 @@
             min-height: calc(var(--banner-count) * var(--banner-height));
         }
 
+        @supports (height: 100svh) {
+            .banner-stack-section {
+                --banner-height: clamp(280px, 50svh, 480px);
+            }
+        }
+
         .banner-stack {
             display: flex;
             flex-direction: column;
@@ -1078,14 +1084,14 @@
         .banner-stack-item {
             position: relative;
             width: 100%;
-            min-height: var(--banner-height);
+            height: var(--banner-height);
         }
 
         .carpentry-banner,
         .feature-banner {
             position: relative;
             width: 100%;
-            height: clamp(280px, 50vh, 480px);
+            height: var(--banner-height);
             overflow: hidden;
         }
 
