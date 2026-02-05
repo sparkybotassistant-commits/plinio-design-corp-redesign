@@ -273,6 +273,40 @@
             color: var(--accent);
         }
 
+        .mobile-estimate-cta {
+            position: fixed;
+            bottom: 1.25rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1rem;
+            background: rgba(201, 169, 98, 0.95);
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 1px solid rgba(201, 169, 98, 0.4);
+            z-index: 900;
+            box-shadow: 0 12px 30px rgba(15, 18, 24, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .mobile-estimate-cta span {
+            font-size: 1rem;
+            line-height: 1;
+        }
+
+        .mobile-estimate-cta.is-visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -701,6 +735,14 @@
             line-height: 1.7;
         }
 
+        .service-desc-short {
+            display: none;
+        }
+
+        .service-desc-full {
+            display: inline;
+        }
+
         /* Why Us */
         .why-us {
             background: var(--primary);
@@ -717,8 +759,10 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600') center/cover;
-            opacity: 0.1;
+            background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600') center/cover no-repeat;
+            opacity: 0.12;
+            z-index: 0;
+            pointer-events: none;
         }
 
         .why-us .container {
@@ -737,6 +781,34 @@
             color: rgba(255,255,255,0.7);
             max-width: 800px;
             margin: 0 auto 3rem;
+        }
+
+        .why-us-highlights {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .why-us-item {
+            text-align: center;
+            padding: 1.5rem;
+            width: clamp(200px, 22vw, 240px);
+        }
+
+        .why-us-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .why-us-item h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .why-us-item p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
         }
 
         /* Houzz Reviews */
@@ -970,40 +1042,78 @@
         /* Carpentry Spotlight */
         .carpentry-spotlight {
             background: var(--white);
+            padding: 2rem 0;
         }
 
-        .carpentry-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .carpentry-text p {
-            color: var(--gray);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .carpentry-gallery {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .carpentry-gallery img {
+        .carpentry-banner {
+            position: relative;
             width: 100%;
+            height: clamp(280px, 50vh, 480px);
+            overflow: hidden;
+        }
+
+        .carpentry-carousel {
+            position: absolute;
+            inset: 0;
+        }
+
+        .carpentry-slide {
+            position: absolute;
+            inset: 0;
+            background-size: 120%;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            animation: kenBurns 10s ease-in-out infinite;
+            will-change: background-position;
+        }
+
+        .carpentry-slide.active {
+            opacity: 1;
+        }
+
+        .carpentry-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(26,31,46,0.88) 0%, rgba(26,31,46,0.6) 55%, rgba(26,31,46,0.35) 100%);
+        }
+
+        .carpentry-content {
+            position: relative;
+            z-index: 2;
             height: 100%;
-            object-fit: cover;
-            display: block;
-            border: 6px solid var(--cream);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.75rem;
+            color: var(--white);
+        }
+
+        .carpentry-content .section-label {
+            color: var(--accent);
+        }
+
+        .carpentry-content .section-title {
+            color: var(--white);
+        }
+
+        .carpentry-content p {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            max-width: 42rem;
+        }
+
+        .carpentry-content .btn {
+            align-self: flex-start;
         }
 
         .ba-actions {
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 1rem;
-            margin-top: 1.5rem;
+            margin: 1.5rem auto 0;
+            width: 100%;
         }
 
         .ba-nav {
@@ -1033,7 +1143,7 @@
 
         /* Process */
         .process-section {
-            background: var(--cream);
+            background: var(--white);
             padding: 6rem 0;
         }
 
@@ -1104,12 +1214,44 @@
                 gap: 0.5rem;
             }
 
-            .carpentry-grid {
-                grid-template-columns: 1fr;
+            .carpentry-banner {
+                height: clamp(360px, 70vh, 520px);
             }
 
-            .carpentry-gallery {
-                grid-template-columns: 1fr;
+            .carpentry-content {
+                align-items: flex-start;
+                text-align: left;
+                max-width: 28rem;
+                margin-right: auto;
+            }
+
+            .carpentry-content .btn {
+                align-self: flex-start;
+            }
+
+            .carpentry-slide {
+                background-size: inherit;
+            }
+
+            .carpentry-content .section-title {
+                font-size: clamp(1.85rem, 6vw, 2.4rem);
+            }
+
+            .carpentry-content p {
+                font-size: 0.95rem;
+            }
+
+            .why-us-highlights {
+                gap: 1.5rem;
+            }
+
+            .why-us-item {
+                width: calc(50% - 1rem);
+                padding: 1rem;
+            }
+
+            .why-us-icon {
+                font-size: 2rem;
             }
         }
 
@@ -1427,6 +1569,10 @@
                 display: none;
             }
 
+            .mobile-estimate-cta {
+                display: inline-flex;
+            }
+
             .mobile-menu-btn {
                 display: block;
             }
@@ -1495,8 +1641,33 @@
             }
 
             .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.25rem;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 0.75rem;
+            }
+
+            .service-card {
+                padding: 1.25rem 1rem;
+            }
+
+            .service-card h3 {
+                font-size: clamp(0.95rem, 2.8vw, 1.15rem);
+            }
+
+            .service-card p {
+                font-size: clamp(0.78rem, 2.4vw, 0.95rem);
+                line-height: 1.5;
+            }
+
+            .service-number {
+                font-size: clamp(2rem, 6vw, 3rem);
+            }
+
+            .service-desc-short {
+                display: inline;
+            }
+
+            .service-desc-full {
+                display: none;
             }
 
             .about-features {
@@ -1504,10 +1675,13 @@
             }
 
             .experience-card {
-                position: static;
-                margin: 1.5rem auto 0;
-                width: fit-content;
+                position: absolute;
+                top: 16px;
+                right: 16px;
+                margin: 0;
+                width: auto;
                 padding: 1rem 1.5rem;
+                z-index: 2;
             }
 
             .experience-card .number {
@@ -1515,7 +1689,12 @@
             }
 
             .about-img-secondary {
-                display: none;
+                display: block;
+                position: absolute;
+                bottom: -24px;
+                right: 8px;
+                width: 55%;
+                margin: 0;
             }
 
             section {
@@ -1609,7 +1788,7 @@
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="tel:3474230290" class="nav-cta">Call (347) 423-0290</a>
+            <a href="#contact" class="nav-cta">Get a Free Estimate</a>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
         </div>
     </nav>
@@ -1626,6 +1805,10 @@
             <li><a href="#contact" onclick="toggleMobileMenu()">Contact</a></li>
         </ul>
     </div>
+
+    <a href="#contact" class="mobile-estimate-cta">
+        Get a Free Estimate <span>↓</span>
+    </a>
 
     <!-- Hero with Carousel -->
     <section class="hero" id="home">
@@ -1741,32 +1924,32 @@
                 <div class="service-card reveal-scale reveal-delay-1">
                     <span class="service-number">01</span>
                     <h3>General Remodeling</h3>
-                    <p>Transform your space with our comprehensive remodeling services. Whether it's a kitchen renovation, bathroom upgrade, basement finishing, or full-home renovation, we bring decades of expertise to every project. Our team handles everything from demolition to final touches, ensuring a seamless transformation that adds value to your home.</p>
+                    <p><span class="service-desc-full">Transform your space with our comprehensive remodeling services. Whether it's a kitchen renovation, bathroom upgrade, basement finishing, or full-home renovation, we bring decades of expertise to every project. Our team handles everything from demolition to final touches, ensuring a seamless transformation that adds value to your home.</span><span class="service-desc-short">Kitchen, bath, basement, or whole-home remodels handled end-to-end for a smooth, value-adding transformation.</span></p>
                 </div>
                 <div class="service-card reveal-scale reveal-delay-2">
                     <span class="service-number">02</span>
                     <h3>Custom Carpentry</h3>
-                    <p>Handmade carpentry solutions tailored to your exact specifications. From custom cabinets and built-in shelving to intricate trim work and crown molding, our master craftsmen create beautiful, lasting woodwork that elevates any space. We use only premium materials and traditional techniques combined with modern precision.</p>
+                    <p><span class="service-desc-full">Handmade carpentry solutions tailored to your exact specifications. From custom cabinets and built-in shelving to intricate trim work and crown molding, our master craftsmen create beautiful, lasting woodwork that elevates any space. We use only premium materials and traditional techniques combined with modern precision.</span><span class="service-desc-short">Custom cabinets, built-ins, trim, and millwork crafted with premium materials and precision.</span></p>
                 </div>
                 <div class="service-card reveal-scale reveal-delay-3">
                     <span class="service-number">03</span>
                     <h3>Building Regulations</h3>
-                    <p>Navigate NYC's complex building codes with confidence. We handle all permits, inspections, and regulatory compliance for residential and commercial projects. Our deep understanding of DOB requirements ensures your project meets every code requirement, avoiding costly delays and violations.</p>
+                    <p><span class="service-desc-full">Navigate NYC's complex building codes with confidence. We handle all permits, inspections, and regulatory compliance for residential and commercial projects. Our deep understanding of DOB requirements ensures your project meets every code requirement, avoiding costly delays and violations.</span><span class="service-desc-short">Permits, inspections, and DOB compliance handled to keep your project on track.</span></p>
                 </div>
                 <div class="service-card reveal-scale reveal-delay-4">
                     <span class="service-number">04</span>
                     <h3>Home Additions</h3>
-                    <p>Expand your living space with seamlessly integrated home additions. Whether you need an extra bedroom, expanded kitchen, or a second story, we design and build additions that look like they've always been part of your home. We handle structural engineering, foundation work, and all finishing details.</p>
+                    <p><span class="service-desc-full">Expand your living space with seamlessly integrated home additions. Whether you need an extra bedroom, expanded kitchen, or a second story, we design and build additions that look like they've always been part of your home. We handle structural engineering, foundation work, and all finishing details.</span><span class="service-desc-short">Seamless additions—bedrooms, kitchens, or second stories—with full structural and finish work.</span></p>
                 </div>
                 <div class="service-card reveal-scale reveal-delay-5">
                     <span class="service-number">05</span>
                     <h3>Interior Design</h3>
-                    <p>Bring your vision to life with our interior design expertise. Our designers work closely with you to understand your style and functional needs, creating spaces that are both beautiful and practical. From material selection to final staging, we ensure every detail reflects your personal taste.</p>
+                    <p><span class="service-desc-full">Bring your vision to life with our interior design expertise. Our designers work closely with you to understand your style and functional needs, creating spaces that are both beautiful and practical. From material selection to final staging, we ensure every detail reflects your personal taste.</span><span class="service-desc-short">Design guidance from materials to final staging for beautiful, functional spaces.</span></p>
                 </div>
                 <div class="service-card reveal-scale reveal-delay-6">
                     <span class="service-number">06</span>
                     <h3>Specialty Services</h3>
-                    <p>Unique construction needs require specialized expertise. We offer dental clinic construction, commercial renovations, historic restorations, and ADA compliance upgrades. No project is too unusual—our experienced team has seen it all and knows how to deliver exceptional results.</p>
+                    <p><span class="service-desc-full">Unique construction needs require specialized expertise. We offer dental clinic construction, commercial renovations, historic restorations, and ADA compliance upgrades. No project is too unusual—our experienced team has seen it all and knows how to deliver exceptional results.</span><span class="service-desc-short">Dental clinics, commercial renovations, historic restorations, and ADA upgrades.</span></p>
                 </div>
             </div>
         </div>
@@ -1774,18 +1957,18 @@
 
     <!-- Carpentry Spotlight -->
     <section class="carpentry-spotlight reveal">
-        <div class="container">
-            <div class="carpentry-grid">
-                <div class="carpentry-text reveal-left">
-                    <span class="section-label">Signature Carpentry</span>
-                    <h2 class="section-title">Custom Millwork & Built-Ins</h2>
-                    <p>We specialize in handcrafted carpentry that elevates a space—custom bookcases, fireplace surrounds, trim packages, and bespoke built-ins. Every detail is measured, cut, and finished with precision for a truly tailored result.</p>
-                    <a href="#gallery" class="btn btn-primary">View More Carpentry</a>
-                </div>
-                <div class="carpentry-gallery reveal-right">
-                    <img src="assets/carpentry/carpentry-bookcase.png" alt="Custom built-in bookcase carpentry">
-                    <img src="assets/carpentry/carpentry-fireplace.png" alt="Custom fireplace surround carpentry">
-                </div>
+        <div class="carpentry-banner">
+            <div class="carpentry-carousel">
+                <div class="carpentry-slide active" style="background-image: url('assets/carpentry/carpentry-bookcase.png')"></div>
+                <div class="carpentry-slide" style="background-image: url('assets/carpentry/carpentry-fireplace.png')"></div>
+                <div class="carpentry-slide" style="background-image: url('assets/carpentry/carpentry-fireplace2.png')"></div>
+                <div class="carpentry-overlay"></div>
+            </div>
+            <div class="carpentry-content container">
+                <span class="section-label">Our Signature</span>
+                <h2 class="section-title">Custom Carpentry & Millwork</h2>
+                <p>We specialize in handcrafted carpentry that elevates a space—custom bookcases, fireplace surrounds, trim packages, and bespoke built-ins. Every detail is measured, cut, and finished with precision for a truly tailored result.</p>
+                <a href="#gallery" class="btn btn-primary">View More</a>
             </div>
         </div>
     </section>
@@ -1836,26 +2019,26 @@
             <span class="section-label reveal" style="color: var(--accent);">Why Choose Us</span>
             <h2 class="reveal">The Plinio Design Difference</h2>
             <p class="reveal">We are a family-owned business with over 35 years of experience. Our expertise allows us to provide high-quality services at the best rates in the industry. When you choose Plinio Design Corp., you're choosing a partner committed to your complete satisfaction.</p>
-            <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 3rem;">
-                <div class="reveal-scale reveal-delay-1" style="text-align: center; padding: 1.5rem;">
-                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🏆</div>
-                    <h4 style="margin-bottom: 0.5rem;">Award Winning</h4>
-                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Recognized on Houzz</p>
+            <div class="why-us-highlights">
+                <div class="why-us-item reveal-scale reveal-delay-1">
+                    <div class="why-us-icon">🏆</div>
+                    <h4>Award Winning</h4>
+                    <p>Recognized on Houzz</p>
                 </div>
-                <div class="reveal-scale reveal-delay-2" style="text-align: center; padding: 1.5rem;">
-                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📋</div>
-                    <h4 style="margin-bottom: 0.5rem;">Fully Licensed</h4>
-                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">All NYC certifications</p>
+                <div class="why-us-item reveal-scale reveal-delay-2">
+                    <div class="why-us-icon">📋</div>
+                    <h4>Fully Licensed</h4>
+                    <p>All NYC certifications</p>
                 </div>
-                <div class="reveal-scale reveal-delay-3" style="text-align: center; padding: 1.5rem;">
-                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🛡️</div>
-                    <h4 style="margin-bottom: 0.5rem;">Insured</h4>
-                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Full coverage protection</p>
+                <div class="why-us-item reveal-scale reveal-delay-3">
+                    <div class="why-us-icon">🛡️</div>
+                    <h4>Insured</h4>
+                    <p>Full coverage protection</p>
                 </div>
-                <div class="reveal-scale reveal-delay-4" style="text-align: center; padding: 1.5rem;">
-                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⭐</div>
-                    <h4 style="margin-bottom: 0.5rem;">5-Star Rated</h4>
-                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Consistently top reviews</p>
+                <div class="why-us-item reveal-scale reveal-delay-4">
+                    <div class="why-us-icon">⭐</div>
+                    <h4>5-Star Rated</h4>
+                    <p>Consistently top reviews</p>
                 </div>
             </div>
             <a href="#contact" class="btn btn-primary reveal" style="margin-top: 3rem;">Start Your Project</a>
@@ -2222,6 +2405,75 @@
 
         revealElements.forEach(el => revealObserver.observe(el));
 
+        // Parallax backgrounds
+        const parallaxConfigs = [
+            {
+                container: document.querySelector('.carpentry-banner'),
+                elements: Array.from(document.querySelectorAll('.carpentry-slide')),
+                range: 20,
+                mode: 'background-percent'
+            }
+        ];
+        let parallaxRaf = null;
+
+        function updateParallax() {
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+            parallaxConfigs.forEach(({ container, elements, range, mode }) => {
+                if (!container || !elements.length) return;
+                const rect = container.getBoundingClientRect();
+                const progress = (viewportHeight - rect.top) / (viewportHeight + rect.height);
+                const clamped = Math.max(0, Math.min(1, progress));
+                const yOffset = range * (clamped - 0.5);
+                elements.forEach(el => {
+                    if (mode === 'transform') {
+                        el.style.transform = `translate3d(0, ${yOffset}px, 0)`;
+                        return;
+                    }
+                    if (mode === 'background-percent') {
+                        el.style.backgroundPosition = `center ${50 + yOffset}%`;
+                        return;
+                    }
+                    el.style.backgroundPosition = `center calc(50% + ${yOffset}px)`;
+                });
+            });
+        }
+
+        function onParallaxScroll() {
+            if (parallaxRaf) return;
+            parallaxRaf = requestAnimationFrame(() => {
+                updateParallax();
+                parallaxRaf = null;
+            });
+        }
+
+        window.addEventListener('scroll', onParallaxScroll);
+        window.addEventListener('resize', updateParallax);
+        window.addEventListener('load', updateParallax);
+        updateParallax();
+
+        // Mobile estimate CTA visibility after About section
+        const mobileEstimateCta = document.querySelector('.mobile-estimate-cta');
+        const aboutSection = document.getElementById('about');
+        const mobileQuery = window.matchMedia('(max-width: 768px)');
+
+        if (mobileEstimateCta && aboutSection) {
+            const toggleEstimateCta = (isVisible) => {
+                mobileEstimateCta.classList.toggle('is-visible', isVisible && mobileQuery.matches);
+            };
+
+            const estimateObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    toggleEstimateCta(entry.isIntersecting || entry.boundingClientRect.top < 0);
+                });
+            }, { threshold: 0.1 });
+
+            estimateObserver.observe(aboutSection);
+
+            mobileQuery.addEventListener('change', () => {
+                toggleEstimateCta(false);
+            });
+        }
+
         // Mobile Menu
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
@@ -2261,6 +2513,26 @@
 
         // Auto-advance carousel every 5 seconds
         setInterval(nextSlide, 5000);
+
+        // Carpentry banner carousel
+        let carpentryIndex = 0;
+        const carpentrySlides = document.querySelectorAll('.carpentry-slide');
+        const carpentryTotal = carpentrySlides.length;
+
+        function goToCarpentrySlide(index) {
+            if (!carpentrySlides.length) return;
+            carpentrySlides[carpentryIndex].classList.remove('active');
+            carpentryIndex = index;
+            carpentrySlides[carpentryIndex].classList.add('active');
+        }
+
+        function nextCarpentrySlide() {
+            goToCarpentrySlide((carpentryIndex + 1) % carpentryTotal);
+        }
+
+        if (carpentryTotal > 1) {
+            setInterval(nextCarpentrySlide, 4500);
+        }
 
         // Lightbox
         const galleryImages = [
