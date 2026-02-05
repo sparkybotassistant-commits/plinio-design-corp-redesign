@@ -967,6 +967,38 @@
             padding: 0.35rem 0.7rem;
         }
 
+        /* Carpentry Spotlight */
+        .carpentry-spotlight {
+            background: var(--white);
+        }
+
+        .carpentry-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .carpentry-text p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .carpentry-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .carpentry-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border: 6px solid var(--cream);
+        }
+
         .ba-actions {
             display: flex;
             justify-content: center;
@@ -1070,6 +1102,14 @@
             .ba-track {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 0.5rem;
+            }
+
+            .carpentry-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .carpentry-gallery {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1689,6 +1729,67 @@
         </div>
     </section>
 
+    <!-- Services -->
+    <section class="services reveal" id="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Our Services</span>
+                <h2 class="section-title">Comprehensive Construction Solutions</h2>
+                <p class="section-subtitle">From concept to completion, we handle every aspect of your construction project with precision and care.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal-scale reveal-delay-1">
+                    <span class="service-number">01</span>
+                    <h3>General Remodeling</h3>
+                    <p>Transform your space with our comprehensive remodeling services. Whether it's a kitchen renovation, bathroom upgrade, basement finishing, or full-home renovation, we bring decades of expertise to every project. Our team handles everything from demolition to final touches, ensuring a seamless transformation that adds value to your home.</p>
+                </div>
+                <div class="service-card reveal-scale reveal-delay-2">
+                    <span class="service-number">02</span>
+                    <h3>Custom Carpentry</h3>
+                    <p>Handmade carpentry solutions tailored to your exact specifications. From custom cabinets and built-in shelving to intricate trim work and crown molding, our master craftsmen create beautiful, lasting woodwork that elevates any space. We use only premium materials and traditional techniques combined with modern precision.</p>
+                </div>
+                <div class="service-card reveal-scale reveal-delay-3">
+                    <span class="service-number">03</span>
+                    <h3>Building Regulations</h3>
+                    <p>Navigate NYC's complex building codes with confidence. We handle all permits, inspections, and regulatory compliance for residential and commercial projects. Our deep understanding of DOB requirements ensures your project meets every code requirement, avoiding costly delays and violations.</p>
+                </div>
+                <div class="service-card reveal-scale reveal-delay-4">
+                    <span class="service-number">04</span>
+                    <h3>Home Additions</h3>
+                    <p>Expand your living space with seamlessly integrated home additions. Whether you need an extra bedroom, expanded kitchen, or a second story, we design and build additions that look like they've always been part of your home. We handle structural engineering, foundation work, and all finishing details.</p>
+                </div>
+                <div class="service-card reveal-scale reveal-delay-5">
+                    <span class="service-number">05</span>
+                    <h3>Interior Design</h3>
+                    <p>Bring your vision to life with our interior design expertise. Our designers work closely with you to understand your style and functional needs, creating spaces that are both beautiful and practical. From material selection to final staging, we ensure every detail reflects your personal taste.</p>
+                </div>
+                <div class="service-card reveal-scale reveal-delay-6">
+                    <span class="service-number">06</span>
+                    <h3>Specialty Services</h3>
+                    <p>Unique construction needs require specialized expertise. We offer dental clinic construction, commercial renovations, historic restorations, and ADA compliance upgrades. No project is too unusual—our experienced team has seen it all and knows how to deliver exceptional results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carpentry Spotlight -->
+    <section class="carpentry-spotlight reveal">
+        <div class="container">
+            <div class="carpentry-grid">
+                <div class="carpentry-text reveal-left">
+                    <span class="section-label">Signature Carpentry</span>
+                    <h2 class="section-title">Custom Millwork & Built-Ins</h2>
+                    <p>We specialize in handcrafted carpentry that elevates a space—custom bookcases, fireplace surrounds, trim packages, and bespoke built-ins. Every detail is measured, cut, and finished with precision for a truly tailored result.</p>
+                    <a href="#gallery" class="btn btn-primary">View More Carpentry</a>
+                </div>
+                <div class="carpentry-gallery reveal-right">
+                    <img src="assets/carpentry/carpentry-bookcase.png" alt="Custom built-in bookcase carpentry">
+                    <img src="assets/carpentry/carpentry-fireplace.png" alt="Custom fireplace surround carpentry">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Houzz Reviews -->
     <section class="houzz-reviews">
         <div class="container">
@@ -1758,119 +1859,6 @@
                 </div>
             </div>
             <a href="#contact" class="btn btn-primary reveal" style="margin-top: 3rem;">Start Your Project</a>
-        </div>
-    </section>
-
-    <!-- Services -->
-    <section class="services reveal" id="services">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">Our Services</span>
-                <h2 class="section-title">Comprehensive Construction Solutions</h2>
-                <p class="section-subtitle">From concept to completion, we handle every aspect of your construction project with precision and care.</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card reveal-scale reveal-delay-1">
-                    <span class="service-number">01</span>
-                    <h3>General Remodeling</h3>
-                    <p>Transform your space with our comprehensive remodeling services. Whether it's a kitchen renovation, bathroom upgrade, basement finishing, or full-home renovation, we bring decades of expertise to every project. Our team handles everything from demolition to final touches, ensuring a seamless transformation that adds value to your home.</p>
-                </div>
-                <div class="service-card reveal-scale reveal-delay-2">
-                    <span class="service-number">02</span>
-                    <h3>Custom Carpentry</h3>
-                    <p>Handmade carpentry solutions tailored to your exact specifications. From custom cabinets and built-in shelving to intricate trim work and crown molding, our master craftsmen create beautiful, lasting woodwork that elevates any space. We use only premium materials and traditional techniques combined with modern precision.</p>
-                </div>
-                <div class="service-card reveal-scale reveal-delay-3">
-                    <span class="service-number">03</span>
-                    <h3>Building Regulations</h3>
-                    <p>Navigate NYC's complex building codes with confidence. We handle all permits, inspections, and regulatory compliance for residential and commercial projects. Our deep understanding of DOB requirements ensures your project meets every code requirement, avoiding costly delays and violations.</p>
-                </div>
-                <div class="service-card reveal-scale reveal-delay-4">
-                    <span class="service-number">04</span>
-                    <h3>Home Additions</h3>
-                    <p>Expand your living space with seamlessly integrated home additions. Whether you need an extra bedroom, expanded kitchen, or a second story, we design and build additions that look like they've always been part of your home. We handle structural engineering, foundation work, and all finishing details.</p>
-                </div>
-                <div class="service-card reveal-scale reveal-delay-5">
-                    <span class="service-number">05</span>
-                    <h3>Interior Design</h3>
-                    <p>Bring your vision to life with our interior design expertise. Our designers work closely with you to understand your style and functional needs, creating spaces that are both beautiful and practical. From material selection to final staging, we ensure every detail reflects your personal taste.</p>
-                </div>
-                <div class="service-card reveal-scale reveal-delay-6">
-                    <span class="service-number">06</span>
-                    <h3>Specialty Services</h3>
-                    <p>Unique construction needs require specialized expertise. We offer dental clinic construction, commercial renovations, historic restorations, and ADA compliance upgrades. No project is too unusual—our experienced team has seen it all and knows how to deliver exceptional results.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Process -->
-    <section class="process-section reveal">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">How We Work</span>
-                <h2 class="section-title">Our Proven Process</h2>
-                <p class="section-subtitle">From initial consultation to final walkthrough, we ensure quality at every step</p>
-            </div>
-            <div class="process-grid">
-                <div class="process-step reveal-left reveal-delay-1">
-                    <div class="step-number" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--accent); opacity: 0.3; font-weight: 700;">01</div>
-                    <h3 style="margin: 1rem 0;">Consultation</h3>
-                    <p style="color: var(--gray);">Free in-home assessment. We listen to your needs, assess your space, and discuss your vision.</p>
-                </div>
-                <div class="process-step reveal-left reveal-delay-2">
-                    <div class="step-number" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--accent); opacity: 0.3; font-weight: 700;">02</div>
-                    <h3 style="margin: 1rem 0;">Design & Quote</h3>
-                    <p style="color: var(--gray);">Detailed proposal with transparent pricing. No hidden fees, no surprises.</p>
-                </div>
-                <div class="process-step reveal-right reveal-delay-3">
-                    <div class="step-number" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--accent); opacity: 0.3; font-weight: 700;">03</div>
-                    <h3 style="margin: 1rem 0;">Construction</h3>
-                    <p style="color: var(--gray);">Expert craftsmen execute your project with daily updates and minimal disruption.</p>
-                </div>
-                <div class="process-step reveal-right reveal-delay-4">
-                    <div class="step-number" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--accent); opacity: 0.3; font-weight: 700;">04</div>
-                    <h3 style="margin: 1rem 0;">Completion</h3>
-                    <p style="color: var(--gray);">Final walkthrough, quality inspection, and your complete satisfaction guaranteed.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section style="background: var(--cream); padding: 6rem 0;">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">FAQ</span>
-                <h2 class="section-title">Frequently Asked Questions</h2>
-                <p class="section-subtitle">Get answers to common questions about our services</p>
-            </div>
-            <div style="max-width: 800px; margin: 0 auto;">
-                <div style="border-bottom: 1px solid #eee; padding: 1.5rem 0;">
-                    <h4 style="margin-bottom: 0.5rem; color: var(--primary);">Do you offer free estimates?</h4>
-                    <p style="color: var(--gray); line-height: 1.7;">Yes! We provide free, no-obligation estimates for all projects. Our team will visit your property, assess the scope of work, and provide a detailed quote outlining all costs, materials, and timelines.</p>
-                </div>
-                <div style="border-bottom: 1px solid #eee; padding: 1.5rem 0;">
-                    <h4 style="margin-bottom: 0.5rem; color: var(--primary);">Are you licensed and insured?</h4>
-                    <p style="color: var(--gray); line-height: 1.7;">Absolutely. Plinio Design Corp. is fully licensed to operate in New York City and carries comprehensive liability insurance. We also ensure all our subcontractors are properly licensed and insured for your protection.</p>
-                </div>
-                <div style="border-bottom: 1px solid #eee; padding: 1.5rem 0;">
-                    <h4 style="margin-bottom: 0.5rem; color: var(--primary);">What areas do you serve?</h4>
-                    <p style="color: var(--gray); line-height: 1.7;">We serve all of New York City including Manhattan, Brooklyn, Queens, and the Bronx. Based in Queens, we're centrally located to respond quickly to projects throughout the city.</p>
-                </div>
-                <div style="border-bottom: 1px solid #eee; padding: 1.5rem 0;">
-                    <h4 style="margin-bottom: 0.5rem; color: var(--primary);">How long will my project take?</h4>
-                    <p style="color: var(--gray); line-height: 1.7;">Project timelines vary based on scope and complexity. A bathroom renovation might take 2-3 weeks, while a full home renovation could take several months. We provide detailed timelines in our estimates and keep you updated throughout the process.</p>
-                </div>
-                <div style="border-bottom: 1px solid #eee; padding: 1.5rem 0;">
-                    <h4 style="margin-bottom: 0.5rem; color: var(--primary);">Do you handle permits and inspections?</h4>
-                    <p style="color: var(--gray); line-height: 1.7;">Yes, we handle all aspects of permits and building regulations. Our team is well-versed in NYC building codes and will ensure your project meets all requirements, handling the paperwork and scheduling inspections so you don't have to worry.</p>
-                </div>
-                <div style="padding: 1.5rem 0;">
-                    <h4 style="margin-bottom: 0.5rem; color: var(--primary);">What types of payment do you accept?</h4>
-                    <p style="color: var(--gray); line-height: 1.7;">We accept various payment methods including cash, check, and wire transfer. Payment schedules are typically structured with a deposit upfront and progress payments tied to project milestones. We discuss all payment terms clearly before starting work.</p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -2012,6 +2000,76 @@
                 <button class="gallery-nav next" id="galleryNext" aria-label="Next gallery page">›</button>
             </div>
             <div class="gallery-pagination" id="galleryPagination" aria-live="polite"></div>
+        </div>
+    </section>
+
+    <!-- Our Process -->
+    <section class="process-section reveal">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">How We Work</span>
+                <h2 class="section-title">Our Proven Process</h2>
+                <p class="section-subtitle">From initial consultation to final walkthrough, we ensure quality at every step</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-step reveal-left reveal-delay-1">
+                    <div class="step-number" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--accent); opacity: 0.3; font-weight: 700;">01</div>
+                    <h3 style="margin: 1rem 0;">Consultation</h3>
+                    <p style="color: var(--gray);">Free in-home assessment. We listen to your needs, assess your space, and discuss your vision.</p>
+                </div>
+                <div class="process-step reveal-left reveal-delay-2">
+                    <div class="step-number" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--accent); opacity: 0.3; font-weight: 700;">02</div>
+                    <h3 style="margin: 1rem 0;">Design & Quote</h3>
+                    <p style="color: var(--gray);">Detailed proposal with transparent pricing. No hidden fees, no surprises.</p>
+                </div>
+                <div class="process-step reveal-right reveal-delay-3">
+                    <div class="step-number" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--accent); opacity: 0.3; font-weight: 700;">03</div>
+                    <h3 style="margin: 1rem 0;">Construction</h3>
+                    <p style="color: var(--gray);">Expert craftsmen execute your project with daily updates and minimal disruption.</p>
+                </div>
+                <div class="process-step reveal-right reveal-delay-4">
+                    <div class="step-number" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--accent); opacity: 0.3; font-weight: 700;">04</div>
+                    <h3 style="margin: 1rem 0;">Completion</h3>
+                    <p style="color: var(--gray);">Final walkthrough, quality inspection, and your complete satisfaction guaranteed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section style="background: var(--cream); padding: 6rem 0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">FAQ</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Get answers to common questions about our services</p>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="border-bottom: 1px solid #eee; padding: 1.5rem 0;">
+                    <h4 style="margin-bottom: 0.5rem; color: var(--primary);">Do you offer free estimates?</h4>
+                    <p style="color: var(--gray); line-height: 1.7;">Yes! We provide free, no-obligation estimates for all projects. Our team will visit your property, assess the scope of work, and provide a detailed quote outlining all costs, materials, and timelines.</p>
+                </div>
+                <div style="border-bottom: 1px solid #eee; padding: 1.5rem 0;">
+                    <h4 style="margin-bottom: 0.5rem; color: var(--primary);">Are you licensed and insured?</h4>
+                    <p style="color: var(--gray); line-height: 1.7;">Absolutely. Plinio Design Corp. is fully licensed to operate in New York City and carries comprehensive liability insurance. We also ensure all our subcontractors are properly licensed and insured for your protection.</p>
+                </div>
+                <div style="border-bottom: 1px solid #eee; padding: 1.5rem 0;">
+                    <h4 style="margin-bottom: 0.5rem; color: var(--primary);">What areas do you serve?</h4>
+                    <p style="color: var(--gray); line-height: 1.7;">We serve all of New York City including Manhattan, Brooklyn, Queens, and the Bronx. Based in Queens, we're centrally located to respond quickly to projects throughout the city.</p>
+                </div>
+                <div style="border-bottom: 1px solid #eee; padding: 1.5rem 0;">
+                    <h4 style="margin-bottom: 0.5rem; color: var(--primary);">How long will my project take?</h4>
+                    <p style="color: var(--gray); line-height: 1.7;">Project timelines vary based on scope and complexity. A bathroom renovation might take 2-3 weeks, while a full home renovation could take several months. We provide detailed timelines in our estimates and keep you updated throughout the process.</p>
+                </div>
+                <div style="border-bottom: 1px solid #eee; padding: 1.5rem 0;">
+                    <h4 style="margin-bottom: 0.5rem; color: var(--primary);">Do you handle permits and inspections?</h4>
+                    <p style="color: var(--gray); line-height: 1.7;">Yes, we handle all aspects of permits and building regulations. Our team is well-versed in NYC building codes and will ensure your project meets all requirements, handling the paperwork and scheduling inspections so you don't have to worry.</p>
+                </div>
+                <div style="padding: 1.5rem 0;">
+                    <h4 style="margin-bottom: 0.5rem; color: var(--primary);">What types of payment do you accept?</h4>
+                    <p style="color: var(--gray); line-height: 1.7;">We accept various payment methods including cash, check, and wire transfer. Payment schedules are typically structured with a deposit upfront and progress payments tied to project milestones. We discuss all payment terms clearly before starting work.</p>
+                </div>
+            </div>
         </div>
     </section>
 
