@@ -81,6 +81,7 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         body {
@@ -820,19 +821,19 @@
             display: block;
             position: fixed;
             top: 0;
-            right: -100%;
-            width: 80%;
-            max-width: 300px;
+            right: 0;
+            width: min(85vw, 300px);
             height: 100vh;
             background: var(--primary);
             z-index: 999;
             padding: 6rem 2rem 2rem;
-            transition: right 0.3s ease;
+            transition: transform 0.3s ease;
+            transform: translateX(100%);
             overflow-y: auto;
         }
 
         .mobile-menu.active {
-            right: 0;
+            transform: translateX(0);
         }
 
         .mobile-menu .nav-links {
@@ -871,6 +872,43 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
+        }
+
+        /* Process */
+        .process-section {
+            background: var(--white);
+            padding: 6rem 0;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Map section */
+        .map-section {
+            padding: 0;
+            background: var(--cream);
+        }
+
+        .map-section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .map-section-info {
+            padding: 4rem;
+        }
+
+        .map-section-embed {
+            height: 100%;
+            min-height: 400px;
         }
 
         @media (max-width: 1024px) {
@@ -1280,7 +1318,8 @@
             }
 
             .services-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.25rem;
             }
 
             .about-features {
@@ -1288,8 +1327,9 @@
             }
 
             .experience-card {
-                right: 10px;
-                bottom: -20px;
+                position: static;
+                margin: 1.5rem auto 0;
+                width: fit-content;
                 padding: 1rem 1.5rem;
             }
 
@@ -1336,6 +1376,27 @@
                 top: 10px;
                 right: 20px;
                 font-size: 30px;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .process-step {
+                padding: 1.5rem;
+            }
+
+            .map-section-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .map-section-info {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .map-section-embed {
+                min-height: 300px;
             }
         }
 
@@ -1535,30 +1596,30 @@
     </section>
 
     <!-- Our Process -->
-    <section class="process reveal" style="background: var(--white); padding: 6rem 0;">
+    <section class="process-section reveal">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">How We Work</span>
                 <h2 class="section-title">Our Proven Process</h2>
                 <p class="section-subtitle">From initial consultation to final walkthrough, we ensure quality at every step</p>
             </div>
-            <div class="process-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;">
-                <div class="process-step reveal-left reveal-delay-1" style="text-align: center; padding: 2rem;">
+            <div class="process-grid">
+                <div class="process-step reveal-left reveal-delay-1">
                     <div class="step-number" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--accent); opacity: 0.3; font-weight: 700;">01</div>
                     <h3 style="margin: 1rem 0;">Consultation</h3>
                     <p style="color: var(--gray);">Free in-home assessment. We listen to your needs, assess your space, and discuss your vision.</p>
                 </div>
-                <div class="process-step reveal-left reveal-delay-2" style="text-align: center; padding: 2rem;">
+                <div class="process-step reveal-left reveal-delay-2">
                     <div class="step-number" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--accent); opacity: 0.3; font-weight: 700;">02</div>
                     <h3 style="margin: 1rem 0;">Design & Quote</h3>
                     <p style="color: var(--gray);">Detailed proposal with transparent pricing. No hidden fees, no surprises.</p>
                 </div>
-                <div class="process-step reveal-right reveal-delay-3" style="text-align: center; padding: 2rem;">
+                <div class="process-step reveal-right reveal-delay-3">
                     <div class="step-number" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--accent); opacity: 0.3; font-weight: 700;">03</div>
                     <h3 style="margin: 1rem 0;">Construction</h3>
                     <p style="color: var(--gray);">Expert craftsmen execute your project with daily updates and minimal disruption.</p>
                 </div>
-                <div class="process-step reveal-right reveal-delay-4" style="text-align: center; padding: 2rem;">
+                <div class="process-step reveal-right reveal-delay-4">
                     <div class="step-number" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--accent); opacity: 0.3; font-weight: 700;">04</div>
                     <h3 style="margin: 1rem 0;">Completion</h3>
                     <p style="color: var(--gray);">Final walkthrough, quality inspection, and your complete satisfaction guaranteed.</p>
@@ -1826,9 +1887,9 @@
     </section>
 
     <!-- Map Section -->
-    <section style="padding: 0; background: var(--cream);">
-        <div style="display: grid; grid-template-columns: 1fr 1fr;">
-            <div style="padding: 4rem;">
+    <section class="map-section">
+        <div class="map-section-grid">
+            <div class="map-section-info">
                 <span class="section-label">Visit Us</span>
                 <h3 style="font-size: 2rem; margin: 1rem 0;">Our Location</h3>
                 <p style="color: var(--gray); margin-bottom: 1.5rem;">Conveniently located in Woodside, Queens. Serving all of NYC including Manhattan, Bronx, Queens, and Brooklyn.</p>
@@ -1856,7 +1917,7 @@
                     </div>
                 </div>
             </div>
-            <div style="height: 100%; min-height: 400px;">
+            <div class="map-section-embed">
                 <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.214383341846!2d-73.89932568531421!3d40.735307979329356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25efa525f824d%3A0x4d255614a006601b!2s50-58%2068th%20St%2C%20Queens%2C%20NY%2011377%2C%20USA!5e0!3m2!1sen!2sni!4v1604591575612!5m2!1sen!2sni" 
                     width="100%" 
