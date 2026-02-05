@@ -2031,10 +2031,10 @@
         });
 
         // Scroll reveal animations
-        const revealElements = document.querySelectorAll('.service-card, .gallery-item, .contact-item, .review-card');
+        const scrollRevealElements = document.querySelectorAll('.service-card, .gallery-item, .contact-item, .review-card');
         
         const revealOnScroll = () => {
-            revealElements.forEach(element => {
+            scrollRevealElements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
                 
@@ -2046,7 +2046,7 @@
         };
 
         // Initialize reveal elements
-        revealElements.forEach(element => {
+        scrollRevealElements.forEach(element => {
             element.style.opacity = '0';
             element.style.transform = 'translateY(30px)';
             element.style.transition = 'all 0.6s ease';
