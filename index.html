@@ -83,6 +83,18 @@
             font-weight: 600;
         }
 
+        /* Image loading shimmer */
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .shimmer-bg {
+            background: linear-gradient(90deg, #f0ece5 25%, #f8f4eb 37%, #f0ece5 63%);
+            background-size: 200% 100%;
+            animation: shimmer 1.6s ease-in-out infinite;
+        }
+
         /* Preloader */
         .preloader {
             position: fixed;
@@ -597,6 +609,9 @@
             width: 85%;
             border-radius: 4px;
             box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            background: linear-gradient(90deg, #f0ece5 25%, #f8f4eb 37%, #f0ece5 63%);
+            background-size: 200% 100%;
+            animation: shimmer 1.6s ease-in-out infinite;
         }
 
         .about-img-secondary {
@@ -607,6 +622,9 @@
             border-radius: 4px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
             border: 5px solid var(--white);
+            background: linear-gradient(90deg, #f0ece5 25%, #f8f4eb 37%, #f0ece5 63%);
+            background-size: 200% 100%;
+            animation: shimmer 1.6s ease-in-out infinite;
         }
 
         .experience-card {
@@ -1005,7 +1023,9 @@
         .ba-image {
             position: relative;
             overflow: hidden;
-            background: var(--cream);
+            background: linear-gradient(90deg, #f0ece5 25%, #f8f4eb 37%, #f0ece5 63%);
+            background-size: 200% 100%;
+            animation: shimmer 1.6s ease-in-out infinite;
             aspect-ratio: 3 / 4;
         }
 
@@ -1094,6 +1114,9 @@
             width: 100%;
             height: var(--banner-height);
             overflow: hidden;
+            background: linear-gradient(90deg, #1a1f2e 25%, #252b3d 37%, #1a1f2e 63%);
+            background-size: 200% 100%;
+            animation: shimmer 1.6s ease-in-out infinite;
         }
 
         .carpentry-carousel,
@@ -1353,6 +1376,9 @@
             overflow: hidden;
             aspect-ratio: 1;
             cursor: pointer;
+            background: linear-gradient(90deg, #f0ece5 25%, #f8f4eb 37%, #f0ece5 63%);
+            background-size: 200% 100%;
+            animation: shimmer 1.6s ease-in-out infinite;
         }
 
         .gallery-item img {
