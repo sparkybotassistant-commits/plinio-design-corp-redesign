@@ -2916,6 +2916,16 @@
 
             const formData = new FormData(contactForm);
 
+            // Format phone to E.164 (+1XXXXXXXXXX) before submitting
+            let phone = formData.get('fi-sender-phone');
+            if (phone) {
+                phone = phone.replace(/[\s\-\(\)\.]/g, ''); // strip formatting chars
+                if (!phone.startsWith('+')) {
+                    phone = '+1' + phone; // default to US country code
+                }
+                formData.set('fi-sender-phone', phone);
+            }
+
             const { data, redirectUrl, error } = await forminit.submit(FORM_ID, formData);
 
             if (error) {
