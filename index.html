@@ -2471,22 +2471,22 @@
                     </div>
                 </div>
                 <div class="contact-form reveal-right">
-                    <form onsubmit="event.preventDefault(); alert('Thank you! We will contact you within 24 hours.');">
+                    <form id="contact-form">
                         <div class="form-group">
                             <label for="contact-name">Your Name</label>
-                            <input type="text" id="contact-name" name="name" placeholder="John Doe" required>
+                            <input type="text" id="contact-name" name="fi-sender-fullName" placeholder="John Doe" required>
                         </div>
                         <div class="form-group">
                             <label for="contact-phone">Phone Number</label>
-                            <input type="tel" id="contact-phone" name="phone" placeholder="(347) 123-4567" required>
+                            <input type="tel" id="contact-phone" name="fi-sender-phone" placeholder="(347) 123-4567" required>
                         </div>
                         <div class="form-group">
                             <label for="contact-email">Email Address</label>
-                            <input type="email" id="contact-email" name="email" placeholder="john@example.com">
+                            <input type="email" id="contact-email" name="fi-sender-email" placeholder="john@example.com">
                         </div>
                         <div class="form-group">
                             <label for="contact-service">Service Needed</label>
-                            <select id="contact-service" name="service">
+                            <select id="contact-service" name="fi-select-service">
                                 <option value="">Select a service...</option>
                                 <option value="general-remodeling">General Remodeling</option>
                                 <option value="custom-carpentry">Custom Carpentry</option>
@@ -2498,9 +2498,10 @@
                         </div>
                         <div class="form-group">
                             <label for="contact-details">Project Details</label>
-                            <textarea id="contact-details" name="details" placeholder="Tell us about your project..."></textarea>
+                            <textarea id="contact-details" name="fi-text-details" placeholder="Tell us about your project..."></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary" style="width: 100%;">Request Free Estimate →</button>
+                        <p id="form-result" style="margin-top: 1rem; font-weight: 600; text-align: center;"></p>
                     </form>
                 </div>
             </div>
@@ -2891,6 +2892,46 @@
         }
 
         updateBeforeAfter();
+    </script>
+
+    <!-- Forminit SDK -->
+    <script src="https://forminit.com/sdk/v1/forminit.js"></script>
+    <script>
+        const forminit = new Forminit();
+        const FORM_ID = 'xgost58og47';
+
+        const contactForm = document.getElementById('contact-form');
+        const formResult = document.getElementById('form-result');
+
+        contactForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            // Disable button while submitting
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            formResult.textContent = '';
+            formResult.style.color = '';
+
+            const formData = new FormData(contactForm);
+
+            const { data, redirectUrl, error } = await forminit.submit(FORM_ID, formData);
+
+            if (error) {
+                formResult.textContent = error.message;
+                formResult.style.color = '#e74c3c';
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+                return;
+            }
+
+            formResult.textContent = 'Thank you! We will contact you within 24 hours.';
+            formResult.style.color = '#27ae60';
+            contactForm.reset();
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+        });
     </script>
 </body>
 </html>
