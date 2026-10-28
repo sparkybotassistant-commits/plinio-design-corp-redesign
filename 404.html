@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Plinio Design Corp.</title>
+    <meta name="robots" content="noindex">
+    <script>
+        // Send visitors from old pliniodesigncorp.com URLs to the matching section of the current site
+        (function () {
+            var path = location.pathname.toLowerCase().replace(/\/+$/, '');
+            var legacy = {
+                '/index': '/', '/home': '/', '/video': '/',
+                '/about': '/#about', '/services': '/#services', '/contact': '/#contact',
+                '/gallery': '/#gallery', '/portfolio': '/#gallery', '/reviews': '/#reviews'
+            };
+            var key = path.replace(/\.(php|html?)$/, '');
+            if (legacy[key]) {
+                location.replace(legacy[key]);
+            } else if (path.indexOf('/src/') === 0) {
+                location.replace('/');
+            }
+        })();
+    </script>
+    <link rel="icon" type="image/png" href="/assets/branding/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1f2e;
+            --accent: #c9a962;
+            --accent-light: #e0c078;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        img {
+            height: 60px;
+            filter: brightness(0) invert(1);
+            margin-bottom: 2.5rem;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: clamp(2rem, 6vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+            max-width: 32rem;
+            margin: 0 auto 2rem;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 2px solid var(--accent);
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            border-color: var(--accent-light);
+        }
+
+        .btn-outline {
+            color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <a href="/"><img src="/assets/branding/logo.png" alt="Plinio Design Corp. home"></a>
+        <h1>Page Not Found</h1>
+        <p>The page you're looking for has moved or no longer exists. You can find everything about our remodeling, carpentry, and building services on our homepage.</p>
+        <div class="actions">
+            <a href="/" class="btn btn-primary">Go to Homepage</a>
+            <a href="/#contact" class="btn btn-outline">Get a Free Estimate</a>
+        </div>
+    </main>
+</body>
+</html>
